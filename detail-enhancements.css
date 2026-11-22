@@ -1,0 +1,20 @@
+.augment-primary{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:4px 0 10px;padding:10px 12px;border:1px solid #80642a;border-radius:8px;background:#302714}
+.augment-primary b{color:#f2cd79;font-size:12px;white-space:nowrap}
+.augment-primary .augment-chip{border-color:#80642a;background:#3e3218;color:#ffe8a6;font-size:13px;font-weight:800}
+.augment-candidates{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:start;gap:8px}
+.augment-candidates>strong{padding-top:4px;color:#aeb8c5;font-size:12px}
+.augment-candidates .augment-list{gap:6px}
+.unit-build-table{min-width:870px}
+.unit-build-table .unit-with-items{min-width:180px}
+.unit-role-badge{display:inline-flex;align-items:center;margin-top:3px;padding:1px 6px;border:1px solid #48606b;border-radius:999px;color:#9ad9cc;font-size:10px;font-weight:750}
+.special-item-options{display:flex;flex-direction:column;gap:6px;margin-top:9px;padding-top:8px;border-top:1px solid #ffffff12}
+.special-item-group{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:start;gap:7px}
+.special-item-group>small{padding-top:4px;color:#aeb8c5;font-size:11px;font-weight:750}
+.special-item-list{display:flex;flex-wrap:wrap;gap:5px 9px}
+.special-item-chip{display:inline-flex;align-items:center;gap:5px;max-width:100%;color:#dce7f2;font-size:11px;line-height:1.25}
+.special-item-chip img{flex:none;width:25px;height:25px;object-fit:cover;border:1px solid #536172;border-radius:4px;background:#202938}
+.special-item-chip .image-fallback{width:25px;height:25px;font-size:11px}
+.special-item-empty{color:#7f8d9c;font-size:11px}
+.special-data-note{margin:10px 0 0;color:#aeb8c5;font-size:12px;line-height:1.55}
+.special-data-sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;font-size:12px}
+@media(max-width:640px){.augment-candidates{grid-template-columns:1fr;gap:4px}.special-item-group{grid-template-columns:80px minmax(0,1fr)}.unit-build-table{min-width:760px}.special-item-chip{font-size:10px}.special-item-chip img,.special-item-chip .image-fallback{width:23px;height:23px}}
