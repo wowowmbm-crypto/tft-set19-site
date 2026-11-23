@@ -1,0 +1,76 @@
+{
+  "checked_at": "2026/11/23",
+  "window_hours": 72,
+  "sources": {
+    "X": { "checked_at": "2026-11-23T01:07:00Z", "status": "seed" },
+    "YouTube": { "checked_at": "2026-11-23T00:07:00Z", "status": "seed" }
+  },
+  "items": [
+    {
+      "id": "x-2124481714504560900",
+      "source": "X",
+      "url": "https://x.com/Ginya_76/status/2124481714504560900",
+      "published_at": "2026-11-23T01:07:00Z",
+      "title": "ボディーガード・レナータ",
+      "summary": "Lv6の2コストリロール案。レナータ、ナサス、ジャックスの★3を狙う",
+      "metric_label": "表示",
+      "metric_count": 4827,
+      "engagement_score": 4827
+    },
+    {
+      "id": "youtube-VUnq5BhGekU",
+      "source": "YouTube",
+      "url": "https://www.youtube.com/watch?v=VUnq5BhGekU",
+      "published_at": "2026-11-23T00:07:00Z",
+      "title": "アーリ＋ユーミのFlex構成",
+      "summary": "しかめまどか · 2試合の実戦紹介",
+      "metric_label": "再生",
+      "metric_count": 2977,
+      "engagement_score": 2977
+    },
+    {
+      "id": "x-2124428390216483128",
+      "source": "X",
+      "url": "https://x.com/SauzaTFT3028/status/2124428390216483128",
+      "published_at": "2026-11-22T21:07:00Z",
+      "title": "アイスパ＋ジャズ（9シナジー案）",
+      "summary": "Lv8で9シナジー、Lv9でスミーチを追加する案",
+      "metric_label": "表示",
+      "metric_count": 3329,
+      "engagement_score": 3329
+    },
+    {
+      "id": "x-2124346168214016164",
+      "source": "X",
+      "url": "https://x.com/Ginya_76/status/2124346168214016164",
+      "published_at": "2026-11-22T16:07:00Z",
+      "title": "スレイヤー・ヴィエゴ（千本桜）",
+      "summary": "2-1からヴィエゴで勝ち進行。ブライアーの装備案も紹介",
+      "metric_label": "表示",
+      "metric_count": 11311,
+      "engagement_score": 11311
+    },
+    {
+      "id": "youtube-jjX7H-yuKJ8",
+      "source": "YouTube",
+      "url": "https://www.youtube.com/watch?v=jjX7H-yuKJ8",
+      "published_at": "2026-11-22T12:07:00Z",
+      "title": "今メタの10構成をまとめて解説",
+      "summary": "くろなげないふチャンネル · 選び方・使い方も紹介",
+      "metric_label": "再生",
+      "metric_count": 2764,
+      "engagement_score": 2764
+    },
+    {
+      "id": "youtube-R_uXneQZiY0",
+      "source": "YouTube",
+      "url": "https://www.youtube.com/watch?v=R_uXneQZiY0",
+      "published_at": "2026-11-21T04:07:00Z",
+      "title": "グーフェン95",
+      "summary": "しかめまどか · 投稿者が「今セット最強」と紹介",
+      "metric_label": "再生",
+      "metric_count": 9921,
+      "engagement_score": 9921
+    }
+  ]
+}
