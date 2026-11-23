@@ -26,15 +26,21 @@ jobs:
       - name: Refresh recent PBE statistics
         run: python scripts/update_tft_stats.py
 
-      - name: Commit changed statistics
+      - name: Refresh recent X and YouTube pickups
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/update_sns_pickups.py
+
+      - name: Commit changed site data
         shell: bash
         run: |
-          if git diff --quiet -- index.html stats_candidates.json; then
-            echo "No statistics or candidate changes to publish."
+          if git diff --quiet -- index.html stats_candidates.json sns_pickups.json; then
+            echo "No statistics, candidate, or social pickup changes to publish."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html stats_candidates.json
-          git commit -m "Refresh Set 19 PBE statistics and candidates"
+          git add index.html stats_candidates.json sns_pickups.json
+          git commit -m "Refresh Set 19 stats and social picks"
           git push
