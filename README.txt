@@ -12,6 +12,11 @@ GitHub Actions の「Update TFT Set 19 site data」は、毎週日曜 09:00（�
 ・X は自動取得しません。X_BEARER_TOKEN はワークフローから呼び出されず、X API の利用料も発生しません。
 ・この処理に ChatGPT / OpenAI のAPIキーやトークンは使いません。
 
+■ Notion記事候補の週次取得（任意）
+NotionのSet 19データベースから、記事名・投稿日・投稿者・パッチ名・記事URLだけを読み取り、直近90日分を「統計照合待ち」として候補欄に表示します。本文の自動要約や、候補から構成一覧への自動登録はしません。
+自動取得する場合は、Notionで「コンテンツを読み取る」権限だけの内部連携を作り、Set 19データベースに接続を共有します。GitHubリポジトリの Settings → Secrets and variables → Actions → New repository secret に NOTION_API_KEY を登録してください。トークンはチャットやサイトのファイルに貼らないでください。データベースIDが既定値と異なる場合のみ、同じ画面の Variables に NOTION_DATABASE_ID を登録します。
+接続前も統計・YouTube更新は通常どおり動作し、Notion候補は未接続と表示します。API取得に失敗した場合は保存済み候補を保持します。
+
 ■ YouTube API キーの登録（任意）
 GitHub リポジトリの Settings → Secrets and variables → Actions → New repository secret を開き、名前を YOUTUBE_API_KEY として Google Cloud の YouTube Data API v3 キーを登録します。キーは GitHub Secrets にだけ置き、サイトのコードやチャットに貼らないでください。キーがない場合も統計の週次更新は動きます。
 
@@ -29,7 +34,7 @@ Notion 内の構成紹介・照合先：
 ・TFT Pro Radar: https://tftproradar.com/
 
 Notion の記事だけを根拠に統計ランクを上げたり、構成を自動で追加したりはしません。PBEの最新記事を候補の発見に使い、統計サイトや別の構成ガイドと照合してから一覧へ反映します。日本語オーグメント名、推奨装備、配置、プレイ条件、ガイド文は人が根拠を確認して編集します。
-現在の週次ワークフローは Notion の本文を自動取得・要約しません。Notion の新着記事を構成一覧へ反映する場合は、記事の内容と統計を確認してから手動で編集します。これにより、古いPBE情報や翻訳文の誤読をそのまま掲載するのを防ぎます。
+週次更新では Notion 記事のメタデータだけを自動取得します。記事の内容と統計を照合し、配置・装備・オーグメント・プレイ条件を確認してから手動で構成一覧へ反映してください。Notionの記事だけで評価を上げたり、構成を自動登録したりはしません。
 
 ■ 実行結果の見方
 Actions の実行が Success でも、YouTubeキー未登録、名称照合なし、新規候補なしの場合があります。実行ログで各データ元の取得結果を確認してください。構成ガイドの内容は自動更新されないため、数値更新とガイド更新は別の作業です。

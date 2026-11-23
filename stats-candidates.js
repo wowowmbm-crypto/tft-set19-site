@@ -58,7 +58,8 @@
       '<div class="candidate-metric"><small>1位率</small><b>' + stats.win.toFixed(1) + '%</b></div>' +
       '<div class="candidate-metric"><small>Pick率</small><b>' + escapeHtml(pick) + '</b></div>' +
       '</div>' +
-      '<div class="callout"><b>統計候補：</b>出典のS/A評価とPick率をもとに掲載しています。構成ガイド、配置、アイテム、オーグメントはまだ確認していません。</div>' +
+      '<div class="callout"><b>統計候補：</b>出典のS/A評価とPick率をもとに掲載しています。構成ガイド、配置、アイテム、オーグメントは未確認です。Notion記事が見つかった場合も、統計・別ガイドとの照合後にのみ確定構成へ反映します。</div>' +
+      '<p><a href="https://busy-ziconium-740.notion.site/1d3859a65b0a80f8adc3c0378eb3b007?v=41a859a65b0a80af8014000c747530dd&amp;p=41b859a65b0a80199190d863429bdd52&amp;pm=s" target="_blank" rel="noopener">Notion Set 19記事を照合する ↗</a></p>' +
       '<p><a href="' + SOURCE_URL + '" target="_blank" rel="noopener">TFT NinjaのPBE構成統計を見る ↗</a></p>' +
       '<p class="result">' + escapeHtml(payload.criteria || '') + '</p>' +
       '</article>';
@@ -94,9 +95,9 @@
         style: '統計候補',
         diff: 'ガイド未確認',
         role: '統計のみ',
-        learn: 'Pick率 ' + rate + ' · ガイド未登録',
+        learn: '統計候補 · Notion記事照合待ち · Pick率 ' + rate,
         risk: '統計候補',
-        cond: '出典側のS/A評価とPick率を確認。構成の詳細は未確認です。',
+        cond: 'TFT Ninjaの統計とNotion・別ガイドを照合。統計だけで構成ガイドを確定しません。',
         board: '詳細は主要サイトで未確認',
         items: [],
         aug: [],

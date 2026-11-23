@@ -190,7 +190,7 @@ def read_previous():
     return {"checked_at": "", "sources": {}, "items": []}
 
 
-def save_payload(previous, now, cutoff, refreshed):
+def save_payload(previous, now, cutoff, refreshed, source_states):
     by_source = {"X": [], "YouTube": []}
     for item in previous.get("items", []):
         source = item.get("source")
@@ -199,9 +199,18 @@ def save_payload(previous, now, cutoff, refreshed):
             by_source[source].append(item)
 
     sources = previous.get("sources") if isinstance(previous.get("sources"), dict) else {}
-    for source, new_items in refreshed.items():
-        by_source[source] = new_items
-        sources[source] = {"checked_at": isoformat(now), "status": "ok"}
+    for source in ("X", "YouTube"):
+        old_source = sources.get(source) if isinstance(sources.get(source), dict) else {}
+        status = source_states.get(source, "not_configured")
+        checked_at = old_source.get("checked_at", "")
+        if source in refreshed:
+            by_source[source] = refreshed[source]
+            checked_at = isoformat(now)
+        sources[source] = {
+            "checked_at": checked_at,
+            "last_attempt_at": isoformat(now),
+            "status": status,
+        }
 
     items = []
     for source in ("X", "YouTube"):
@@ -229,6 +238,7 @@ def main():
     cutoff = now - WINDOW
     previous = read_previous()
     refreshed = {}
+    source_states = {}
     warnings = []
 
     x_token = os.environ.get("X_BEARER_TOKEN", "").strip()
@@ -236,23 +246,28 @@ def main():
     if x_token:
         try:
             refreshed["X"] = fetch_x(x_token, cutoff)
+            source_states["X"] = "ok"
         except RuntimeError as error:
+            source_states["X"] = "error"
             warnings.append(str(error))
     else:
-        warnings.append("X update skipped: X_BEARER_TOKEN repository secret is not configured.")
+        source_states["X"] = "manual"
+        print("X update skipped: X is kept as a manual review source.")
 
     if youtube_key:
         try:
             refreshed["YouTube"] = fetch_youtube(youtube_key, cutoff)
+            source_states["YouTube"] = "ok"
         except RuntimeError as error:
+            source_states["YouTube"] = "error"
             warnings.append(str(error))
     else:
+        source_states["YouTube"] = "not_configured"
         warnings.append("YouTube update skipped: YOUTUBE_API_KEY repository secret is not configured.")
 
-    if refreshed:
-        save_payload(previous, now, cutoff, refreshed)
-    else:
-        print("No SNS source was refreshed; the last published pickup data was kept.")
+    save_payload(previous, now, cutoff, refreshed, source_states)
+    if not refreshed:
+        print("No SNS source was refreshed; recent saved pickups were kept and expired items were removed.")
 
     for warning in warnings:
         print(f"::warning::{warning}")

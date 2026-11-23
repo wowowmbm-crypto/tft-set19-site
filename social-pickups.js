@@ -47,6 +47,21 @@
       var date = new Date((sourceData[source] || {}).checked_at || '');
       return Number.isNaN(date.getTime()) ? '未取得' : (date.getMonth() + 1) + '/' + date.getDate();
     };
+    var sourceState = function (source) {
+      var metadata = sourceData[source] || {};
+      var checked = new Date(metadata.checked_at || '');
+      var validChecked = !Number.isNaN(checked.getTime());
+      var overdue = validChecked && Date.now() - checked.getTime() > 72 * 3600000;
+      var freshnessNote = overdue ? ' · 3日超' : '';
+      var status = metadata.status || 'unknown';
+      if (status === 'manual') return '手動確認対象' + (validChecked ? ' · 掲載データ ' + sourceDate(source) : '') + freshnessNote;
+      if (status === 'not_configured') return 'API未設定' + (validChecked ? ' · 最終取得 ' + sourceDate(source) : '') + freshnessNote;
+      if (status === 'error') return '取得エラー' + (validChecked ? ' · 最終成功 ' + sourceDate(source) : '') + freshnessNote;
+      if (status === 'seed') return '初期掲載データ' + (validChecked ? ' · ' + sourceDate(source) : '') + freshnessNote;
+      if (overdue) return '要更新 · 最終成功 ' + sourceDate(source);
+      if (status === 'ok') return '取得済' + (validChecked ? ' · ' + sourceDate(source) : '');
+      return '状態未確認' + (validChecked ? ' · ' + sourceDate(source) : '');
+    };
     var xCount = items.filter(function (item) { return item.source === 'X'; }).length;
     var youtubeCount = items.filter(function (item) { return item.source === 'YouTube'; }).length;
     var countText = 'X ' + xCount + '件（' + sourceDate('X') + '） · YouTube ' + youtubeCount + '件（' + sourceDate('YouTube') + '）';
@@ -62,11 +77,13 @@
         '<strong>' + escapeHtml(item.title) + '</strong>' +
         '<small>' + escapeHtml(summary) + metricText + '</small></a>';
     }).join('');
+    var freshness = '<div class="sns-freshness"><span><b>X:</b> ' + escapeHtml(sourceState('X')) +
+      '</span><span><b>YouTube:</b> ' + escapeHtml(sourceState('YouTube')) + '</span></div>';
 
     section.innerHTML = '<div class="sns-heading"><span class="sns-leading"><span class="sns-yt">SNS</span><strong>SNSのピックアップ情報</strong></span>' +
       '<span class="sns-count">' + countText + '</span><span class="sns-teaser">' + teaser + '</span></div>' +
       '<div class="sns-pickup-grid">' + (cards || '<p class="sns-disclaimer">直近3日以内に取得できる構成紹介はありません。次回の更新時に再確認します。</p>') + '</div>' +
-      '<p class="sns-disclaimer">X・YouTubeの公開投稿から直近3日以内の情報を掲載。表示数・いいね数・再生数は取得時点の参考値で、構成の強さを示す戦績ではありません。投稿内容はPBE調整で変わる場合があります。</p>';
+      freshness + '<p class="sns-disclaimer">投稿時刻と取得成功時刻は別に表示しています。表示数・いいね数・再生数は取得時点の参考値で、構成の強さを示す戦績ではありません。投稿内容はPBE調整で変わる場合があります。</p>';
   };
 
   fetch('./sns_pickups.json', { cache: 'no-store' })
@@ -78,6 +95,6 @@
       if (payload && Array.isArray(payload.items)) render(payload);
     })
     .catch(function () {
-      // Keep the curated HTML fallback if the optional pickup file is unavailable.
+      section.innerHTML = '<div class="sns-heading"><span class="sns-leading"><span class="sns-yt">SNS</span><strong>SNSのピックアップ情報</strong></span><span class="sns-count">最新状態を取得できません</span></div><p class="sns-disclaimer">保存済みの投稿データを読み込めませんでした。ページを再読み込みするか、次回の更新後に確認してください。</p>';
     });
 })();
