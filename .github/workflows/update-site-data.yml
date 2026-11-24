@@ -16,7 +16,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Check out the site
         uses: actions/checkout@v4
@@ -27,6 +27,8 @@ jobs:
           python-version: "3.12"
 
       - name: Refresh recent PBE statistics and candidates
+        id: tft_stats
+        continue-on-error: true
         run: python scripts/update_tft_stats.py
 
       - name: Refresh recent YouTube pickups
@@ -40,15 +42,20 @@ jobs:
           NOTION_DATABASE_ID: ${{ vars.NOTION_DATABASE_ID }}
         run: python scripts/update_notion_candidates.py
 
+      - name: Discover unregistered compositions across sources
+        env:
+          TFT_NINJA_REFRESH_STATUS: ${{ steps.tft_stats.outcome }}
+        run: python scripts/update_comp_candidates.py
+
       - name: Commit changed site data
         shell: bash
         run: |
-          if git diff --quiet -- index.html stats_candidates.json sns_pickups.json notion_candidates.json; then
+          if git diff --quiet -- index.html stats_candidates.json sns_pickups.json notion_candidates.json comp_candidates.json; then
             echo "No statistics, candidate, or pickup changes to publish."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html stats_candidates.json sns_pickups.json notion_candidates.json
+          git add index.html stats_candidates.json sns_pickups.json notion_candidates.json comp_candidates.json
           git commit -m "Refresh Set 19 stats and content candidates"
           git push
