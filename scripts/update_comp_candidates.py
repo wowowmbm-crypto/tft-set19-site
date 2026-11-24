@@ -92,6 +92,7 @@ class ListingParser(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.headings = []
+        self.heading_entries = []
         self.links = []
         self._heading = None
         self._link = None
@@ -114,6 +115,7 @@ class ListingParser(HTMLParser):
             text = clean_text("".join(self._heading["parts"]))
             if text:
                 self.headings.append(text)
+                self.heading_entries.append({"tag": self._heading["tag"], "text": text})
             self._heading = None
         if self._link is not None and tag == "a":
             text = clean_text("".join(self._link["parts"]))
@@ -177,19 +179,49 @@ def parse_mobalytics(html):
 def parse_tft_coach(html):
     parser = ListingParser()
     parser.feed(html)
+
+    # The listing uses in-page anchors for its comp table, so its URLs may
+    # resolve to /set-19/comps#... instead of a nested /comps/<slug> route.
+    # Match linked labels to real section headings instead of assuming a URL
+    # shape that the site does not use.
+    heading_keys = {
+        normalize_title(entry["text"])
+        for entry in parser.heading_entries
+        if entry["tag"] in {"h2", "h3"} and len(normalize_title(entry["text"])) >= 4
+    }
     items = {}
     for link in parser.links:
-        absolute = urljoin(FEEDS["tft_coach"]["url"], link["href"])
-        parsed = urlparse(absolute)
-        if parsed.hostname != "tftcoach.com" or not re.match(r"^/set-19/comps/[^/?#]+/?$", parsed.path):
-            continue
         title = clean_text(link["text"])
         key = normalize_title(title)
-        if len(key) < 4 or key in {"comps", "set19comps", "compsset19"}:
+        if len(key) < 4 or key not in heading_keys:
+            continue
+        absolute = urljoin(FEEDS["tft_coach"]["url"], link["href"])
+        parsed = urlparse(absolute)
+        if parsed.hostname != "tftcoach.com" or not parsed.path.startswith("/set-19/comps"):
             continue
         items.setdefault(key, {"title": title, "tier": None, "url": absolute})
+
+    # Keep discovery useful if the source removes the table links but retains
+    # its heading outline. Comp names are h3 sections; prose subheadings and
+    # FAQ questions are excluded.
     if not items:
-        raise RuntimeError("No Set 19 composition links found; keeping the previous source snapshot")
+        excluded = {
+            "reroll comps", "fast 8 comps: 4-cost carries", "fast 9 comps: late-game boards",
+            "the 15 comps at a glance", "faq", "know the set before you pick a comp",
+        }
+        excluded_keys = {normalize_title(name) for name in excluded}
+        for entry in parser.heading_entries:
+            title = clean_text(entry["text"])
+            key = normalize_title(title)
+            lowered = title.lower()
+            if entry["tag"] != "h3" or len(key) < 4 or key in excluded_keys:
+                continue
+            if lowered.startswith(("board ", "traits", "how to ", "what to ", "items", "to unlock", "what are ", "which ", "do i ", "is this ")):
+                continue
+            items.setdefault(key, {"title": title, "tier": None, "url": FEEDS["tft_coach"]["url"]})
+
+    if not items:
+        raise RuntimeError("No Set 19 composition entries found; keeping the previous source snapshot")
     return list(items.values())
 
 
