@@ -64,9 +64,7 @@
     };
     var xCount = items.filter(function (item) { return item.source === 'X'; }).length;
     var youtubeCount = items.filter(function (item) { return item.source === 'YouTube'; }).length;
-    var countText = 'X ' + xCount + '件（' + sourceDate('X') + '） · YouTube ' + youtubeCount + '件（' + sourceDate('YouTube') + '）';
-    var newest = items[0];
-    var teaser = newest ? '新着：' + escapeHtml(newest.title) + '（' + escapeHtml(newest.source) + '・' + ageLabel(new Date(newest.published_at)) + '）' : 'X・YouTubeの公開情報を更新ごとに確認';
+    var countText = 'X ' + xCount + '件 · YouTube ' + youtubeCount + '件';
     var cards = items.map(function (item) {
       var date = new Date(item.published_at);
       var summary = String(item.summary || '').trim();
@@ -79,11 +77,48 @@
     }).join('');
     var freshness = '<div class="sns-freshness"><span><b>X:</b> ' + escapeHtml(sourceState('X')) +
       '</span><span><b>YouTube:</b> ' + escapeHtml(sourceState('YouTube')) + '</span></div>';
-
+    var controls = items.length ? '<div class="sns-carousel-tools" role="group" aria-label="SNS投稿を移動">' +
+      '<span class="sns-carousel-status" aria-live="polite">1–' + Math.min(items.length, 4) + ' / ' + items.length + '</span>' +
+      '<button type="button" class="sns-carousel-prev" aria-label="前の投稿"><span aria-hidden="true">‹</span></button>' +
+      '<button type="button" class="sns-carousel-next" aria-label="次の投稿"><span aria-hidden="true">›</span></button></div>' : '';
     section.innerHTML = '<div class="sns-heading"><span class="sns-leading"><span class="sns-yt">SNS</span><strong>SNSのピックアップ情報</strong></span>' +
-      '<span class="sns-count">' + countText + '</span><span class="sns-teaser">' + teaser + '</span></div>' +
-      '<div class="sns-pickup-grid">' + (cards || '<p class="sns-disclaimer">直近3日以内に取得できる構成紹介はありません。次回の更新時に再確認します。</p>') + '</div>' +
-      freshness + '<p class="sns-disclaimer">投稿時刻と取得成功時刻は別に表示しています。表示数・いいね数・再生数は取得時点の参考値で、構成の強さを示す戦績ではありません。投稿内容はPBE調整で変わる場合があります。</p>';
+      '<span class="sns-count">' + countText + '</span>' + controls + '</div>' +
+      (cards ? '<div id="sns-pickup-track" class="sns-pickup-grid" tabindex="0" aria-label="SNS投稿一覧">' + cards + '</div>' :
+        '<p class="sns-disclaimer">直近3日以内に取得できる構成紹介はありません。次回の更新時に再確認します。</p>') +
+      '<div class="sns-meta">' + freshness +
+      '<span class="sns-disclaimer">表示数・再生数は参考値です。投稿内容はPBE調整で変わる場合があります。</span></div>';
+
+    if (items.length) {
+      var track = section.querySelector('#sns-pickup-track');
+      var previous = section.querySelector('.sns-carousel-prev');
+      var next = section.querySelector('.sns-carousel-next');
+      var status = section.querySelector('.sns-carousel-status');
+      var tools = section.querySelector('.sns-carousel-tools');
+      var update = function () {
+        var first = track.firstElementChild;
+        var gap = parseFloat(window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap) || 0;
+        var step = first ? first.getBoundingClientRect().width + gap : 1;
+        var start = Math.min(items.length, Math.floor((track.scrollLeft + 2) / step) + 1);
+        var visible = Math.max(1, Math.ceil((track.clientWidth + 2) / step));
+        var end = Math.min(items.length, start + visible - 1);
+        status.textContent = start + '–' + end + ' / ' + items.length;
+        tools.hidden = track.scrollWidth <= track.clientWidth + 2;
+        previous.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      };
+      var scrollPage = function (direction) {
+        var first = track.firstElementChild;
+        var gap = parseFloat(window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap) || 0;
+        var step = first ? first.getBoundingClientRect().width + gap : track.clientWidth;
+        var cards = Math.max(1, Math.floor(track.clientWidth / step) - 1);
+        track.scrollBy({ left: direction * step * cards, behavior: 'smooth' });
+      };
+      previous.addEventListener('click', function () { scrollPage(-1); });
+      next.addEventListener('click', function () { scrollPage(1); });
+      track.addEventListener('scroll', function () { window.requestAnimationFrame(update); });
+      window.addEventListener('resize', update);
+      update();
+    }
   };
 
   fetch('./sns_pickups.json', { cache: 'no-store' })
