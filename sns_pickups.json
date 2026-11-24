@@ -4,12 +4,12 @@
   "sources": {
     "X": {
       "checked_at": "2026-11-23T01:07:00Z",
-      "last_attempt_at": "2026-11-24T02:05:24Z",
+      "last_attempt_at": "2026-11-24T10:58:50Z",
       "status": "manual"
     },
     "YouTube": {
       "checked_at": "2026-11-23T00:07:00Z",
-      "last_attempt_at": "2026-11-24T02:05:24Z",
+      "last_attempt_at": "2026-11-24T10:58:50Z",
       "status": "not_configured"
     }
   },
@@ -68,17 +68,6 @@
       "metric_label": "再生",
       "metric_count": 2764,
       "engagement_score": 2764
-    },
-    {
-      "id": "youtube-R_uXneQZiY0",
-      "source": "YouTube",
-      "url": "https://www.youtube.com/watch?v=R_uXneQZiY0",
-      "published_at": "2026-11-21T04:07:00Z",
-      "title": "グーフェン95",
-      "summary": "しかめまどか · 投稿者が「今セット最強」と紹介",
-      "metric_label": "再生",
-      "metric_count": 9921,
-      "engagement_score": 9921
     }
   ]
 }

@@ -1,35 +1,338 @@
 {
-  "checked_at": "2026-11-24",
+  "checked_at": "2026-11-24T10:58:51Z",
   "sources": {
-    "tft_ninja": {"name": "TFT Ninja", "status": "ok", "checked_at": "2026-11-23", "count": 0, "url": "https://tft.ninja/comps?e=pbe"},
-    "mobalytics": {"name": "Mobalytics", "status": "ok", "checked_at": "2026-11-24", "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps"},
-    "tft_coach": {"name": "TFT Coach", "status": "ok", "checked_at": "2026-11-23", "url": "https://tftcoach.com/set-19/comps"},
-    "notion": {"name": "Notion", "status": "not_configured", "checked_at": "", "count": 0, "url": ""}
+    "tft_ninja": {
+      "name": "TFT Ninja",
+      "status": "stale",
+      "checked_at": "2026/11/24",
+      "count": 0,
+      "url": "https://tft.ninja/comps?e=pbe"
+    },
+    "mobalytics": {
+      "name": "Mobalytics",
+      "status": "stale",
+      "checked_at": "2026-11-24",
+      "last_attempt_at": "2026-11-24T10:58:51Z",
+      "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps"
+    },
+    "tft_coach": {
+      "name": "TFT Coach",
+      "status": "stale",
+      "checked_at": "2026-11-23",
+      "last_attempt_at": "2026-11-24T10:58:51Z",
+      "url": "https://tftcoach.com/set-19/comps"
+    },
+    "notion": {
+      "name": "Notion",
+      "status": "not_configured",
+      "checked_at": "",
+      "count": 0,
+      "url": ""
+    }
   },
   "candidates": [
-    {"id": "slayer-viego", "name": "Slayin Alive", "tier": "S", "statistical": false, "source_count": 2, "sources": [
-      {"id": "mobalytics", "name": "Mobalytics", "title": "Slayin Alive", "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps", "checked_at": "2026-11-24", "tier": "S"},
-      {"id": "tft_coach", "name": "TFT Coach", "title": "Slayer Viego", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}
-    ]},
-    {"id": "rock-vayne", "name": "We Will Rock You", "tier": "A", "statistical": false, "source_count": 2, "sources": [
-      {"id": "mobalytics", "name": "Mobalytics", "title": "We Will Rock You", "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps", "checked_at": "2026-11-24", "tier": "A"},
-      {"id": "tft_coach", "name": "TFT Coach", "title": "Rock Vayne", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}
-    ]},
-    {"id": "guns-n-encores", "name": "Guns N Encores", "tier": "S", "statistical": false, "source_count": 1, "sources": [{"id": "mobalytics", "name": "Mobalytics", "title": "Guns N Encores", "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps", "checked_at": "2026-11-24", "tier": "S"}]},
-    {"id": "smeech-operator", "name": "Smeech Operator", "tier": "A", "statistical": false, "source_count": 1, "sources": [{"id": "mobalytics", "name": "Mobalytics", "title": "Smeech Operator", "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps", "checked_at": "2026-11-24", "tier": "A"}]},
-    {"id": "hes-electric", "name": "He's Electric", "tier": "A", "statistical": false, "source_count": 1, "sources": [{"id": "mobalytics", "name": "Mobalytics", "title": "He's Electric", "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps", "checked_at": "2026-11-24", "tier": "A"}]},
-    {"id": "indie-seraphine", "name": "Indie Seraphine", "tier": null, "statistical": false, "source_count": 1, "sources": [{"id": "tft_coach", "name": "TFT Coach", "title": "Indie Seraphine", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}]},
-    {"id": "heartsteel-yone", "name": "Heartsteel Yone", "tier": null, "statistical": false, "source_count": 1, "sources": [{"id": "tft_coach", "name": "TFT Coach", "title": "Heartsteel Yone", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}]},
-    {"id": "kda-ahri", "name": "K/DA Ahri", "tier": null, "statistical": false, "source_count": 1, "sources": [{"id": "tft_coach", "name": "TFT Coach", "title": "K/DA Ahri", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}]},
-    {"id": "pentakill-kayle", "name": "Pentakill Kayle", "tier": null, "statistical": false, "source_count": 1, "sources": [{"id": "tft_coach", "name": "TFT Coach", "title": "Pentakill Kayle", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}]},
-    {"id": "true-damage-yasuo", "name": "True Damage Yasuo", "tier": null, "statistical": false, "source_count": 1, "sources": [{"id": "tft_coach", "name": "TFT Coach", "title": "True Damage Yasuo", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}]},
-    {"id": "rb-mel", "name": "R&B Mel", "tier": null, "statistical": false, "source_count": 1, "sources": [{"id": "tft_coach", "name": "TFT Coach", "title": "R&B Mel", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}]},
-    {"id": "swiftstriker-zeri", "name": "Swiftstriker Zeri", "tier": null, "statistical": false, "source_count": 1, "sources": [{"id": "tft_coach", "name": "TFT Coach", "title": "Swiftstriker Zeri", "url": "https://tftcoach.com/set-19/comps", "checked_at": "2026-11-23"}]}
+    {
+      "id": "04703f6fd34a",
+      "name": "Slayin Alive",
+      "tier": "S",
+      "statistical": false,
+      "source_count": 2,
+      "sources": [
+        {
+          "id": "mobalytics",
+          "name": "Mobalytics",
+          "title": "Slayin Alive",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps",
+          "checked_at": "2026-11-24",
+          "tier": "S"
+        },
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "Slayer Viego",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "f44c9e68b733",
+      "name": "We Will Rock You",
+      "tier": "A",
+      "statistical": false,
+      "source_count": 2,
+      "sources": [
+        {
+          "id": "mobalytics",
+          "name": "Mobalytics",
+          "title": "We Will Rock You",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps",
+          "checked_at": "2026-11-24",
+          "tier": "A"
+        },
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "Rock Vayne",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "4de9bc1e294e",
+      "name": "Guns N Encores",
+      "tier": "S",
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "mobalytics",
+          "name": "Mobalytics",
+          "title": "Guns N Encores",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps",
+          "checked_at": "2026-11-24",
+          "tier": "S"
+        }
+      ]
+    },
+    {
+      "id": "156d5aaf2583",
+      "name": "He's Electric",
+      "tier": "A",
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "mobalytics",
+          "name": "Mobalytics",
+          "title": "He's Electric",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps",
+          "checked_at": "2026-11-24",
+          "tier": "A"
+        }
+      ]
+    },
+    {
+      "id": "6fdfc9c05b1e",
+      "name": "Smeech Operator",
+      "tier": "A",
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "mobalytics",
+          "name": "Mobalytics",
+          "title": "Smeech Operator",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps",
+          "checked_at": "2026-11-24",
+          "tier": "A"
+        }
+      ]
+    },
+    {
+      "id": "6c2044d09f92",
+      "name": "Heartsteel Yone",
+      "tier": null,
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "Heartsteel Yone",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "c8b83a4ec188",
+      "name": "Indie Seraphine",
+      "tier": null,
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "Indie Seraphine",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "45e6dc7a77a8",
+      "name": "K/DA Ahri",
+      "tier": null,
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "K/DA Ahri",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "eb3823d31057",
+      "name": "Pentakill Kayle",
+      "tier": null,
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "Pentakill Kayle",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2a33b63b5ccf",
+      "name": "R&B Mel",
+      "tier": null,
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "R&B Mel",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "357210b183d8",
+      "name": "Swiftstriker Zeri",
+      "tier": null,
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "Swiftstriker Zeri",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "0e3a7dea680a",
+      "name": "True Damage Yasuo",
+      "tier": null,
+      "statistical": false,
+      "source_count": 1,
+      "sources": [
+        {
+          "id": "tft_coach",
+          "name": "TFT Coach",
+          "title": "True Damage Yasuo",
+          "url": "https://tftcoach.com/set-19/comps",
+          "checked_at": "2026-11-23"
+        }
+      ]
+    }
   ],
   "articles": [],
   "note": "候補発見用です。統計・ガイドの掲載内容を確認する前に、盤面や装備を構成ガイドへ自動登録しません。",
   "feeds": {
-    "mobalytics": {"name": "Mobalytics", "status": "ok", "checked_at": "2026-11-24", "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps", "items": []},
-    "tft_coach": {"name": "TFT Coach", "status": "ok", "checked_at": "2026-11-23", "url": "https://tftcoach.com/set-19/comps", "items": []}
+    "mobalytics": {
+      "status": "stale",
+      "name": "Mobalytics",
+      "checked_at": "2026-11-24",
+      "last_attempt_at": "2026-11-24T10:58:51Z",
+      "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps",
+      "items": [
+        {
+          "title": "Slayin Alive",
+          "tier": "S",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps"
+        },
+        {
+          "title": "We Will Rock You",
+          "tier": "A",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps"
+        },
+        {
+          "title": "Guns N Encores",
+          "tier": "S",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps"
+        },
+        {
+          "title": "Smeech Operator",
+          "tier": "A",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps"
+        },
+        {
+          "title": "He's Electric",
+          "tier": "A",
+          "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps"
+        }
+      ]
+    },
+    "tft_coach": {
+      "status": "stale",
+      "name": "TFT Coach",
+      "checked_at": "2026-11-23",
+      "last_attempt_at": "2026-11-24T10:58:51Z",
+      "url": "https://tftcoach.com/set-19/comps",
+      "items": [
+        {
+          "title": "Slayer Viego",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        },
+        {
+          "title": "Rock Vayne",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        },
+        {
+          "title": "Indie Seraphine",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        },
+        {
+          "title": "Heartsteel Yone",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        },
+        {
+          "title": "K/DA Ahri",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        },
+        {
+          "title": "Pentakill Kayle",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        },
+        {
+          "title": "True Damage Yasuo",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        },
+        {
+          "title": "R&B Mel",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        },
+        {
+          "title": "Swiftstriker Zeri",
+          "tier": null,
+          "url": "https://tftcoach.com/set-19/comps"
+        }
+      ]
+    }
   }
 }
