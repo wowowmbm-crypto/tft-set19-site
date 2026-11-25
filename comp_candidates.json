@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-24T11:02:48Z",
+  "checked_at": "2026-11-25T03:20:32Z",
   "sources": {
     "tft_ninja": {
       "name": "TFT Ninja",
-      "status": "ok",
+      "status": "stale",
       "checked_at": "2026/11/24",
       "count": 0,
       "url": "https://tft.ninja/comps?e=pbe"
@@ -12,14 +12,14 @@
       "name": "Mobalytics",
       "status": "stale",
       "checked_at": "2026-11-24",
-      "last_attempt_at": "2026-11-24T11:02:48Z",
+      "last_attempt_at": "2026-11-25T03:20:32Z",
       "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps"
     },
     "tft_coach": {
       "name": "TFT Coach",
       "status": "ok",
-      "checked_at": "2026-11-24T11:02:48Z",
-      "last_attempt_at": "2026-11-24T11:02:48Z",
+      "checked_at": "2026-11-25T03:20:32Z",
+      "last_attempt_at": "2026-11-25T03:20:32Z",
       "url": "https://tftcoach.com/set-19/comps"
     },
     "notion": {
@@ -51,7 +51,7 @@
           "name": "TFT Coach",
           "title": "Slayer Viego",
           "url": "https://tftcoach.com/set-19/comps#slayer-viego",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     },
@@ -75,7 +75,7 @@
           "name": "TFT Coach",
           "title": "Rock Vayne",
           "url": "https://tftcoach.com/set-19/comps#rock-vayne",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     },
@@ -142,7 +142,7 @@
           "name": "TFT Coach",
           "title": "Heartsteel Yone",
           "url": "https://tftcoach.com/set-19/comps#heartsteel-yone",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     },
@@ -158,7 +158,7 @@
           "name": "TFT Coach",
           "title": "Indie Seraphine",
           "url": "https://tftcoach.com/set-19/comps#indie-seraphine",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     },
@@ -174,7 +174,7 @@
           "name": "TFT Coach",
           "title": "K/DA Ahri",
           "url": "https://tftcoach.com/set-19/comps#kda-ahri",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     },
@@ -190,7 +190,7 @@
           "name": "TFT Coach",
           "title": "Pentakill Kayle",
           "url": "https://tftcoach.com/set-19/comps#pentakill-kayle",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     },
@@ -206,7 +206,7 @@
           "name": "TFT Coach",
           "title": "R&B Mel",
           "url": "https://tftcoach.com/set-19/comps#rnb-mel",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     },
@@ -222,7 +222,7 @@
           "name": "TFT Coach",
           "title": "Swiftstriker Zeri",
           "url": "https://tftcoach.com/set-19/comps#swiftstriker-zeri",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     },
@@ -238,7 +238,7 @@
           "name": "TFT Coach",
           "title": "True Damage Yasuo",
           "url": "https://tftcoach.com/set-19/comps#true-damage-yasuo",
-          "checked_at": "2026-11-24T11:02:48Z"
+          "checked_at": "2026-11-25T03:20:32Z"
         }
       ]
     }
@@ -250,7 +250,7 @@
       "status": "stale",
       "name": "Mobalytics",
       "checked_at": "2026-11-24",
-      "last_attempt_at": "2026-11-24T11:02:48Z",
+      "last_attempt_at": "2026-11-25T03:20:32Z",
       "url": "https://mobalytics.gg/tft/guides/best-tft-pbe-comps",
       "items": [
         {
@@ -283,8 +283,8 @@
     "tft_coach": {
       "status": "ok",
       "name": "TFT Coach",
-      "checked_at": "2026-11-24T11:02:48Z",
-      "last_attempt_at": "2026-11-24T11:02:48Z",
+      "checked_at": "2026-11-25T03:20:32Z",
+      "last_attempt_at": "2026-11-25T03:20:32Z",
       "url": "https://tftcoach.com/set-19/comps",
       "items": [
         {
